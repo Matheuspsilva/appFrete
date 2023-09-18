@@ -1,4 +1,102 @@
 package com.matheussilvadev.appfrete.domain.model;
 
+import java.time.LocalDate;
+
 public class Frete {
+
+    private Long id;
+    private String descricao;
+    private double valor;
+    private LocalDate dataEntrega;
+    private StatusFrete status;
+    private Remetente remetente;
+    private Destinatario destinatario;
+    private Transportadora transportadora;
+
+    public Frete() {
+
+    }
+
+    public Frete(Long id, String descricao, double valor, LocalDate dataEntrega, StatusFrete status, Remetente remetente, Destinatario destinatario, Transportadora transportadora) {
+        this.id = id;
+        this.descricao = descricao;
+        this.valor = valor;
+        this.dataEntrega = dataEntrega;
+        this.status = status;
+        this.remetente = remetente;
+        this.destinatario = destinatario;
+        this.transportadora = transportadora;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(LocalDate dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
+
+    public StatusFrete getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusFrete status) {
+        this.status = status;
+    }
+
+    public Remetente getRemetente() {
+        return remetente;
+    }
+
+    public void setRemetente(Remetente remetente) {
+        this.remetente = remetente;
+    }
+
+    public Destinatario getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(Destinatario destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public Transportadora getTransportadora() {
+        return transportadora;
+    }
+
+    public void setTransportadora(Transportadora transportadora) {
+        this.transportadora = transportadora;
+    }
+
+    //toString separado por ; com quebra de linha a cada propriedade
+    @Override
+    public String toString() {
+        return  "id: " + id + ";\n" + "descricao: " + descricao + ";\n" + "valor: " + valor + ";\n"
+                + "dataEntrega: " + dataEntrega + ";\n" + "status: " + status + ";\n" + "remetente: " + remetente + ";\n"
+                + "destinatario: " + destinatario + ";\n" + "transportadora: " + transportadora ;
+    }
 }
