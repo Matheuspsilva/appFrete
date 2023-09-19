@@ -13,11 +13,13 @@ public class Frete {
     private Destinatario destinatario;
     private Transportadora transportadora;
 
+    private Rota rota;
+
     public Frete() {
 
     }
 
-    public Frete(Long id, String descricao, double valor, LocalDate dataEntrega, StatusFrete status, Remetente remetente, Destinatario destinatario, Transportadora transportadora) {
+    public Frete(Long id, String descricao, double valor, LocalDate dataEntrega, StatusFrete status, Remetente remetente, Destinatario destinatario, Transportadora transportadora, Rota rota) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
@@ -26,6 +28,7 @@ public class Frete {
         this.remetente = remetente;
         this.destinatario = destinatario;
         this.transportadora = transportadora;
+        this.rota = rota;
     }
 
     public Long getId() {
@@ -97,6 +100,6 @@ public class Frete {
     public String toString() {
         return  "id: " + id + ";\n" + "descricao: " + descricao + ";\n" + "valor: " + valor + ";\n"
                 + "dataEntrega: " + dataEntrega + ";\n" + "status: " + status + ";\n" + "remetente: " + remetente + ";\n"
-                + "destinatario: " + destinatario + ";\n" + "transportadora: " + transportadora ;
+                + "destinatario: " + destinatario + ";\n" + "transportadora: " + transportadora + ";\n" + "rota: " + rota + ";\n";
     }
 }
