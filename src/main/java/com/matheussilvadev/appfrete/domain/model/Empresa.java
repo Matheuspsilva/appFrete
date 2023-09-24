@@ -1,6 +1,6 @@
 package com.matheussilvadev.appfrete.domain.model;
 
-public class Empresa {
+public abstract class Empresa {
 
     private Long id;
     private String nome;
@@ -23,5 +23,7 @@ public class Empresa {
         return  "id: " + id + "; " + "nome: " + nome + "; " + "endereco: " + endereco + "; "
                 + "telefone: " + telefone + "; " + "cnpj: " + cnpj;
     }
+
+     public abstract String impressao();
 
 }

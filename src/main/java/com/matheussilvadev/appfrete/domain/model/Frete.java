@@ -102,4 +102,8 @@ public class Frete {
                 + "dataEntrega: " + dataEntrega + ";\n" + "status: " + status + ";\n" + "remetente: " + remetente + ";\n"
                 + "destinatario: " + destinatario + ";\n" + "transportadora: " + transportadora + ";\n" + "rota: " + rota + ";\n";
     }
+
+    public String impressao() {
+        return this.getClass().getName() + " " + super.toString();
+    }
 }

@@ -9,4 +9,9 @@ public class Transportadora extends Empresa{
         super(id, nome, endereco, telefone, cnpj);
     }
 
+    @Override
+    public String impressao() {
+        return this.getClass().getName() + " " + super.toString();
+    }
+
 }

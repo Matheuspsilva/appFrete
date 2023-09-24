@@ -19,4 +19,8 @@ public class Rota {
     public String toString() {
         return "distancia: " + distancia ;
     }
+
+    public String impressao() {
+        return this.getClass().getName() + " " + super.toString();
+    }
 }
