@@ -46,16 +46,19 @@
 
          <main>
             <h2>Classe Rota</h2>
+            <h4><a href="/rota/cadastro">Nova</a></h4>
             <table class="table">
                 <thead>
                     <tr>
                         <th>Distancia</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="s" items="${listaRotas}">
                         <tr>
                             <td>${s.distancia}</td>
+                            <td><a href="/rota/${s.id}/excluir">excluir</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
