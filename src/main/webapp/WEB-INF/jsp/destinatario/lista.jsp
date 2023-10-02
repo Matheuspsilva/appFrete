@@ -46,7 +46,7 @@
 
         <main>
             <h2>Classe Destinatario</h2>
-            <p>Representa informações sobre o destinatário de um serviço de frete, incluindo nome, endereço, telefone e CNPJ.</p>
+            <h4><a href="/destinatario/cadastro">Novo</a></h4>
             <table class="table">
                 <thead>
                     <tr>
@@ -54,6 +54,7 @@
                         <th>Endereço</th>
                         <th>Telefone</th>
                         <th>CNPJ</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +64,9 @@
                             <td>${s.endereco}</td>
                             <td>${s.telefone}</td>
                             <td>${s.cnpj}</td>
+                            <td>
+                                <a href="/destinatario/${s.id}/excluir">Excluir</a>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
