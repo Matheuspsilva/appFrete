@@ -21,16 +21,22 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">App Gestão Frete <span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
+                            <a class="nav-link" href="/frete/lista">Frete</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Serviços</a>
+                            <a class="nav-link" href="/rota/lista">Rota</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contato</a>
+                            <a class="nav-link" href="/remetente/lista">Remetente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/destinatario/lista">Destinatario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/transportadora/lista">Transportadora</a>
                         </li>
                     </ul>
                 </div>
