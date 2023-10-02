@@ -1,26 +1,57 @@
 package com.matheussilvadev.appfrete.domain.controller;
 
 import com.matheussilvadev.appfrete.domain.model.Remetente;
+import com.matheussilvadev.appfrete.domain.repository.RemetenteRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Controller
 public class RemetenteController {
 
+    private final RemetenteRepository remetenteRepository;
+
+    public RemetenteController(RemetenteRepository remetenteRepository) {
+        this.remetenteRepository = remetenteRepository;
+    }
+
+    private List<Remetente> obterLista() {
+        return remetenteRepository.findAll();
+    }
+
     @GetMapping("/remetente/lista")
     public String telaLista(Model model) {
 
-        Remetente remetente1 = new Remetente( 1L, "Remetente 1", "Rua 1", "999999999", "11111111111111" );
-        Remetente remetente2 = new Remetente( 2L, "Remetente 2", "Rua 2", "999999998", "22222222222222" );
-        Remetente remetente3 = new Remetente( 3L, "Remetente 3", "Rua 3", "999999997", "33333333333333" );
-
-        List<Remetente> remetentes = List.of(remetente1, remetente2, remetente3);
+        List<Remetente> remetentes = obterLista();
 
         model.addAttribute("listaRemetentes", remetentes);
 
         return "remetente/lista";
     }
+
+    @GetMapping("/remetente/cadastro")
+    public String telaCadastro() {
+
+        return "remetente/cadastro";
+    }
+
+    @PostMapping("/remetente/incluir")
+    public String incluir(Remetente remetente) {
+
+        remetenteRepository.save(remetente);
+
+        return "redirect:/remetente/lista";
+    }
+
+    @GetMapping("/remetente/{id}/excluir")
+    public String exclusao(@PathVariable Integer id){
+        remetenteRepository.deleteById(id);
+
+        return "redirect:/remetente/lista";
+    }
+
 }
