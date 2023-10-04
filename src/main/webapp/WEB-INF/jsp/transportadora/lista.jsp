@@ -46,6 +46,7 @@
 
         <main>
             <h2>Classe Transportadora</h2>
+            <h4><a href="/transportadora/cadastro">Novo</a></h4>
             <table class="table">
                 <thead>
                     <tr>
@@ -53,6 +54,7 @@
                         <th>Endereço</th>
                         <th>Telefone</th>
                         <th>CNPJ</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,6 +64,9 @@
                             <td>${s.endereco}</td>
                             <td>${s.telefone}</td>
                             <td>${s.cnpj}</td>
+                            <td>
+                                <a href="/transportadora/${s.id}/excluir">Excluir</a>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
