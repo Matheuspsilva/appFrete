@@ -42,7 +42,7 @@ public class UsuarioController {
 
         usuarioRepository.save(usuario);
 
-        return "redirect:/usuario/lista";
+        return "redirect:/login";
     }
 
     @GetMapping("/usuario/{id}/excluir")

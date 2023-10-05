@@ -27,6 +27,7 @@
                     <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Entrar</button>
                     </div>
+                    <a href="usuario/cadastro">Cadastre-se</a>
                 </form>
             </div>
 

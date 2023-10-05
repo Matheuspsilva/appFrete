@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,10 +12,11 @@
 <body>
     <div class="container">
         <header>
-            <jsp:include page="navbar.jsp" />
+            <jsp:include page="navbar-home.jsp" />
         </header>
 
         <main>
+
             <h1>Bem-vindo à Minha Página Inicial</h1>
             <p>Este é um exemplo de página inicial simples.</p>
             <!-- Conteúdo adicional da sua página -->
