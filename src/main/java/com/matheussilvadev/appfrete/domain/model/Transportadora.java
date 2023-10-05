@@ -1,5 +1,8 @@
 package com.matheussilvadev.appfrete.domain.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Transportadora extends Empresa{
 
     public Transportadora() {

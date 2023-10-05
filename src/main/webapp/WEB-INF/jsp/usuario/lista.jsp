@@ -16,27 +16,23 @@
         </header>
 
         <main>
-            <h2>Classe Destinatario</h2>
-            <h4><a href="/destinatario/cadastro">Novo</a></h4>
+            <h2>Classe Usuario</h2>
+            <h4><a href="/usuario/cadastro">Novo</a></h4>
             <table class="table">
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Endereço</th>
-                        <th>Telefone</th>
-                        <th>CNPJ</th>
+                        <th>Email</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="s" items="${listaDestinatario}">
+                    <c:forEach var="s" items="${listaUsuarios}">
                         <tr>
                             <td>${s.nome}</td>
-                            <td>${s.endereco}</td>
-                            <td>${s.telefone}</td>
-                            <td>${s.cnpj}</td>
+                            <td>${s.email}</td>
                             <td>
-                                <a href="/destinatario/${s.id}/excluir">Excluir</a>
+                                <a href="/usuario/${s.id}/excluir">Excluir</a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -44,6 +40,7 @@
             </table>
 
         </main>
+
 
         <footer class="text-center mt-4">
             <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
