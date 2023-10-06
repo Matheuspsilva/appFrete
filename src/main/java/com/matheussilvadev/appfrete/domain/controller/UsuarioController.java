@@ -2,6 +2,7 @@ package com.matheussilvadev.appfrete.domain.controller;
 
 import com.matheussilvadev.appfrete.domain.model.Usuario;
 import com.matheussilvadev.appfrete.domain.repository.UsuarioRepository;
+import com.matheussilvadev.appfrete.domain.service.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,20 +14,16 @@ import java.util.List;
 @Controller
 public class UsuarioController {
 
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioService usuarioService;
 
-    public UsuarioController(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
-
-    private List<Usuario> obterLista() {
-        return usuarioRepository.findAll();
+    public UsuarioController( UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 
     @GetMapping("/usuario/lista")
     public String telaLista(Model model) {
 
-        List<Usuario> listaUsuario = obterLista();
+        List<Usuario> listaUsuario = usuarioService.obterLista();
         model.addAttribute("listaUsuarios", listaUsuario);
 
         return "usuario/lista";
@@ -40,14 +37,14 @@ public class UsuarioController {
     @PostMapping("/usuario/incluir")
     public String incluir(Usuario usuario) {
 
-        usuarioRepository.save(usuario);
+        usuarioService.salvar(usuario);
 
         return "redirect:/login";
     }
 
     @GetMapping("/usuario/{id}/excluir")
     public String exclusao(@PathVariable Integer id){
-        usuarioRepository.deleteById(id);
+        usuarioService.excluir(id);
 
         return "redirect:/usuario/lista";
     }
