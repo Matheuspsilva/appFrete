@@ -28,6 +28,8 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/usuario/lista">Usuario</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/sobre">Sobre</a>
             </ul>
         </c:if>
         <ul class="nav navbar-nav navbar-right">
