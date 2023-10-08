@@ -24,9 +24,9 @@ public class FreteTests {
         Destinatario destinatario3 = new Destinatario(3L, "Destinatario 3", "Rua 32", "327654321", "323456789");
         Transportadora transportadora3 = new Transportadora(3L, "Transportadora 3", "Rua 33", "337654321", "333456789");
 
-        Rota rota1 = new Rota(91.23F);
-        Rota rota2 = new Rota(150.65F);
-        Rota rota3 = new Rota(340.2F);
+        Rota rota1 = new Rota("Rota ABCD", 91.23F, "Avenida 23, Rua Zico, Cohab, Nº1, Rio de Janeio, RJ", "Rua das Margaridas, Avenida 45, Jardins, Nº 23, Belo Horizonte - MG");
+        Rota rota2 = new Rota("Rota EFGH", 200.3F, "Avenida 1, Rua Principal, Parque Ambiental, Nº34, Belém, PA", "Rua 12, Avenida José Ferreira, Anl, Nº 1, São Luís - MA");
+        Rota rota3 = new Rota("Rota XVBG", 300.1F, "Avenida 102, Rua 1, Centro, Nº 1, São Paulo, SP", "Rua 1, Avenida 2, Centro, Nº 1, Rio de Janeiro - RJ");
 
         // Na classe FreteTeste crie três variáveis, faça a inicialização e exiba uma mensagem com estas três informações separadas por ";".
         Frete frete1 = new Frete(1L, "Frete econômico", 100.0, LocalDate.now(), StatusFrete.PENDENTE, remetente1, destinatario1, transportadora1, rota1);

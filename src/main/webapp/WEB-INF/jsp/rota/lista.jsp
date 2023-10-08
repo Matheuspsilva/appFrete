@@ -21,14 +21,21 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Nome</th>
                         <th>Distancia</th>
+                        <th>Endereço Origem </th>
+                        <th>Endereço Destino</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="s" items="${listaRotas}">
                         <tr>
+                            <td>${s.nome}</td>
                             <td>${s.distancia}</td>
+                            <td>${s.enderecoOrigem}</td>
+                            <td>${s.enderecoDestino}</td>
+
                             <td><a href="/rota/${s.id}/excluir">excluir</a></td>
                         </tr>
                     </c:forEach>

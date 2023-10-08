@@ -17,6 +17,9 @@
 
         <main>
             <h2>Classe Frete</h2>
+            <!-- link cadastro novo frete -->
+            <h4><a href="/frete/cadastro">Novo</a></h4>
+
             <p>Representa informações sobre um serviço de frete, incluindo sua descrição, valor, data de entrega, status e informações sobre o remetente, destinatário e transportadora envolvidos.</p>
             <table class="table">
                 <thead>

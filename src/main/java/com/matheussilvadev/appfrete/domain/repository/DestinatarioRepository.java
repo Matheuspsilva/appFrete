@@ -1,7 +1,9 @@
 package com.matheussilvadev.appfrete.domain.repository;
 
 import com.matheussilvadev.appfrete.domain.model.Destinatario;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface DestinatarioRepository extends JpaRepository<Destinatario, Integer> {
+@Repository
+public interface DestinatarioRepository extends CrudRepository<Destinatario, Integer> {
 }

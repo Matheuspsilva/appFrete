@@ -1,18 +1,30 @@
 package com.matheussilvadev.appfrete.domain.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
 public class Frete {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
     private double valor;
     private LocalDate dataEntrega;
     private StatusFrete status;
+
+    @ManyToOne
     private Remetente remetente;
+
+    @ManyToOne
     private Destinatario destinatario;
+
+    @ManyToOne
     private Transportadora transportadora;
 
+    @ManyToOne
     private Rota rota;
 
     public Frete() {

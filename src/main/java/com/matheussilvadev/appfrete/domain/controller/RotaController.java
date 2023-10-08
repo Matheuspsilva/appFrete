@@ -1,7 +1,7 @@
 package com.matheussilvadev.appfrete.domain.controller;
 
 import com.matheussilvadev.appfrete.domain.model.Rota;
-import com.matheussilvadev.appfrete.domain.repository.RotaRepository;
+import com.matheussilvadev.appfrete.domain.service.RotaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,20 +13,16 @@ import java.util.List;
 @Controller
 public class RotaController {
 
-    private final RotaRepository rotaRepository;
 
-    public RotaController(RotaRepository rotaRepository) {
-        this.rotaRepository = rotaRepository;
-    }
+    public final RotaService rotaService;
 
-
-    public List<Rota> obterLista() {
-        return rotaRepository.findAll();
+    public RotaController(RotaService rotaService) {
+        this.rotaService = rotaService;
     }
 
     @GetMapping("/rota/lista")
     public String telaLista(Model model) {
-        List<Rota> rotas = obterLista();
+        List<Rota> rotas = rotaService.obterLista();
 
         model.addAttribute("listaRotas", rotas);
 
@@ -42,7 +38,7 @@ public class RotaController {
     @PostMapping("/rota/incluir")
     public String incluir(Rota rota) {
 
-        rotaRepository.save(rota);
+        rotaService.salvar(rota);
 
         return "redirect:/rota/lista";
     }
@@ -50,7 +46,7 @@ public class RotaController {
 
     @GetMapping("/rota/{id}/excluir")
     public String exclusao(@PathVariable  Integer id){
-        rotaRepository.deleteById(id);
+        rotaService.excluir(id);
 
         return "redirect:/rota/lista";
     }

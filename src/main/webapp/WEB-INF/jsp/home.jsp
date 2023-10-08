@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <header>
-            <jsp:include page="navbar-home.jsp" />
+            <jsp:include page="navbar.jsp" />
         </header>
 
         <main>

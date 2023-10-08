@@ -1,25 +1,22 @@
 package com.matheussilvadev.appfrete.domain.controller;
 
 import com.matheussilvadev.appfrete.domain.model.Destinatario;
-import com.matheussilvadev.appfrete.domain.repository.DestinatarioRepository;
+import com.matheussilvadev.appfrete.domain.service.DestinatarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.List;
 
 @Controller
 public class DestinatarioController {
 
-        private DestinatarioRepository destinatarioRepository;
+        private DestinatarioService destinatarioService;
 
-        public DestinatarioController(DestinatarioRepository destinatarioRepository) {
-            this.destinatarioRepository = destinatarioRepository;
-        }
-
-        private List<Destinatario> obterLista() {
-            return destinatarioRepository.findAll();
+        public DestinatarioController(DestinatarioService destinatarioService) {
+            this.destinatarioService = destinatarioService;
         }
 
         @GetMapping("/destinatario/cadastro")
@@ -30,7 +27,7 @@ public class DestinatarioController {
         @GetMapping("/destinatario/lista")
         public String telaLista( Model model) {
 
-            List<Destinatario> listaDestinatario = obterLista();
+            List<Destinatario> listaDestinatario = destinatarioService.obterLista();
             model.addAttribute("listaDestinatario", listaDestinatario);
 
             return "destinatario/lista";
@@ -39,14 +36,14 @@ public class DestinatarioController {
         @PostMapping("/destinatario/incluir")
         public String incluir(Destinatario destinatario) {
 
-            destinatarioRepository.save(destinatario);
+            destinatarioService.salvar(destinatario);
 
             return "redirect:/destinatario/lista";
         }
 
         @GetMapping("/destinatario/{id}/excluir")
         public String exclusao(@PathVariable Integer id){
-            destinatarioRepository.deleteById(id);
+            destinatarioService.excluir(id);
 
             return "redirect:/destinatario/lista";
         }

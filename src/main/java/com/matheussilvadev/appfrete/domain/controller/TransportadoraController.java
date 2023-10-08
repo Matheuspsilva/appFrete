@@ -1,10 +1,11 @@
 package com.matheussilvadev.appfrete.domain.controller;
 
 import com.matheussilvadev.appfrete.domain.model.Transportadora;
-import com.matheussilvadev.appfrete.domain.repository.TransportadoraRepository;
+import com.matheussilvadev.appfrete.domain.service.TransportadoraService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -12,21 +13,17 @@ import java.util.List;
 @Controller
 public class TransportadoraController {
 
-    private final TransportadoraRepository transportadoraRepository;
+    private final TransportadoraService transportadoraService;
 
-    public TransportadoraController(TransportadoraRepository transportadoraRepository) {
-        this.transportadoraRepository = transportadoraRepository;
+    public TransportadoraController(TransportadoraService transportadoraService) {
+        this.transportadoraService = transportadoraService;
     }
 
-
-    private List<Transportadora> obterLista() {
-        return transportadoraRepository.findAll();
-    }
 
     @GetMapping("/transportadora/lista")
     public String telaLista(Model model) {
 
-        List<Transportadora> listaTransportadoras = obterLista();
+        List<Transportadora> listaTransportadoras = transportadoraService.obterLista();
 
         model.addAttribute("listaTransportadoras", listaTransportadoras);
 
@@ -40,13 +37,13 @@ public class TransportadoraController {
 
     @PostMapping("/transportadora/incluir")
     public String incluir(Transportadora transportadora) {
-        transportadoraRepository.save(transportadora);
+        transportadoraService.salvar(transportadora);
         return "redirect:/transportadora/lista";
     }
 
     @GetMapping("/transportadora/{id}/excluir")
-    public String excluir(Transportadora transportadora) {
-        transportadoraRepository.delete(transportadora);
+    public String excluir(@PathVariable Integer id) {
+        transportadoraService.excluir(id);
         return "redirect:/transportadora/lista";
     }
 

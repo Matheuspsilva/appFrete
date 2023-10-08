@@ -1,9 +1,6 @@
 package com.matheussilvadev.appfrete.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Rota {
@@ -14,11 +11,20 @@ public class Rota {
 
     private Float distancia;
 
-    public Rota( Float distancia) {
-        this.distancia = distancia;
-    }
+    private String nome;
+
+    private String enderecoOrigem;
+
+    private String enderecoDestino;
 
     public Rota() {
+    }
+
+    public Rota( String nome, Float distancia, String enderecoOrigem, String enderecoDestino) {
+        this.distancia = distancia;
+        this.nome = nome;
+        this.enderecoOrigem = enderecoOrigem;
+        this.enderecoDestino = enderecoDestino;
     }
 
     public Long getId() {
@@ -37,8 +43,28 @@ public class Rota {
         this.distancia = distancia;
     }
 
-    public String toString() {
-        return "distancia: " + distancia ;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEnderecoOrigem() {
+        return enderecoOrigem;
+    }
+
+    public void setEnderecoOrigem(String enderecoOrigem) {
+        this.enderecoOrigem = enderecoOrigem;
+    }
+
+    public String getEnderecoDestino() {
+        return enderecoDestino;
+    }
+
+    public void setEnderecoDestino(String enderecoDestino) {
+        this.enderecoDestino = enderecoDestino;
     }
 
     public String impressao() {
