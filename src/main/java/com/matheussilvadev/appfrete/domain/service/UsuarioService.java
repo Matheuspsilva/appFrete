@@ -26,8 +26,9 @@ public class UsuarioService {
         }
     }
 
+    @Autowired
     public List<Usuario> obterLista() {
-        return usuarioRepository.findAll();
+        return (List<Usuario>) usuarioRepository.findAll();
     }
 
     public Usuario salvar(Usuario usuario) {

@@ -2,6 +2,7 @@ package com.matheussilvadev.appfrete.domain.service;
 
 import com.matheussilvadev.appfrete.domain.model.Destinatario;
 import com.matheussilvadev.appfrete.domain.repository.DestinatarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class DestinatarioService {
 
+    @Autowired
     private final DestinatarioRepository destinatarioRepository;
 
     public DestinatarioService(DestinatarioRepository destinatarioRepository) {
@@ -16,7 +18,7 @@ public class DestinatarioService {
     }
 
     public List<Destinatario> obterLista() {
-        return destinatarioRepository.findAll();
+        return (List<Destinatario>) destinatarioRepository.findAll();
     }
 
     public Destinatario salvar(Destinatario destinatario) {

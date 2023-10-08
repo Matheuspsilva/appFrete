@@ -1,7 +1,9 @@
 package com.matheussilvadev.appfrete.domain.repository;
 
 import com.matheussilvadev.appfrete.domain.model.Frete;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface FreteRepository extends JpaRepository<Frete, Integer> {
+@Repository
+public interface FreteRepository extends CrudRepository<Frete, Integer> {
 }

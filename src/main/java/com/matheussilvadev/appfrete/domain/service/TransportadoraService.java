@@ -2,6 +2,7 @@ package com.matheussilvadev.appfrete.domain.service;
 
 import com.matheussilvadev.appfrete.domain.model.Transportadora;
 import com.matheussilvadev.appfrete.domain.repository.TransportadoraRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class TransportadoraService {
 
+    @Autowired
     private final TransportadoraRepository transportadoraRepository;
 
     public TransportadoraService(TransportadoraRepository transportadoraRepository) {
@@ -16,7 +18,7 @@ public class TransportadoraService {
     }
 
     public List<Transportadora> obterLista(){
-        return transportadoraRepository.findAll();
+        return (List<Transportadora>) transportadoraRepository.findAll();
     }
 
     public Transportadora salvar(Transportadora transportadora) {

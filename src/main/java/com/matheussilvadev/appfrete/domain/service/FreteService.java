@@ -2,6 +2,7 @@ package com.matheussilvadev.appfrete.domain.service;
 
 import com.matheussilvadev.appfrete.domain.model.Frete;
 import com.matheussilvadev.appfrete.domain.repository.FreteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class FreteService {
 
+    @Autowired
     private final FreteRepository freteRepository;
 
     public FreteService(FreteRepository freteRepository) {
@@ -16,7 +18,7 @@ public class FreteService {
     }
 
     public List<Frete> obterLista() {
-        return freteRepository.findAll();
+        return (List<Frete>) freteRepository.findAll();
     }
 
     public Frete salvar(Frete frete) {

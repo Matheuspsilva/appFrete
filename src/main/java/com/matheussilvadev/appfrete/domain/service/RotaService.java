@@ -2,6 +2,7 @@ package com.matheussilvadev.appfrete.domain.service;
 
 import com.matheussilvadev.appfrete.domain.model.Rota;
 import com.matheussilvadev.appfrete.domain.repository.RotaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class RotaService {
 
+    @Autowired
     private final RotaRepository rotaRepository;
 
     public RotaService(RotaRepository rotaRepository) {
@@ -16,7 +18,7 @@ public class RotaService {
     }
 
     public List<Rota> obterLista(){
-        return rotaRepository.findAll();
+        return (List<Rota>) rotaRepository.findAll();
     }
 
     public Rota salvar(Rota rota) {

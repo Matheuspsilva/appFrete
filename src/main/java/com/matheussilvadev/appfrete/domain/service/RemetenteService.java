@@ -2,6 +2,7 @@ package com.matheussilvadev.appfrete.domain.service;
 
 import com.matheussilvadev.appfrete.domain.model.Remetente;
 import com.matheussilvadev.appfrete.domain.repository.RemetenteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class RemetenteService {
 
+    @Autowired
     private final RemetenteRepository remetenteRepository;
 
     public RemetenteService(RemetenteRepository remetenteRepository) {
@@ -16,7 +18,7 @@ public class RemetenteService {
     }
 
     public List<Remetente> obterLista() {
-        return remetenteRepository.findAll();
+        return (List<Remetente>) remetenteRepository.findAll();
     }
 
     public Remetente salvar(Remetente remetente) {
