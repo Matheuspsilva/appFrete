@@ -15,10 +15,25 @@
 
 	  <form action="/rota/incluir" method="post">
 
-	    <div class="mb-3 mt-3">
-	      <label for="nome">Distância:</label>
-	      <input type="text" class="form-control" id="distancia"  name="distancia">
-	    </div>
+        <div class="mb-3 mt-3">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome"  name="nome">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="nome">Distância:</label>
+          <input type="text" class="form-control" id="distancia"  name="distancia">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="nome">Endereço Origem:</label>
+          <input type="text" class="form-control" id="enderecoOrigem"  name="enderecoOrigem">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="nome">Endereço Destino:</label>
+          <input type="text" class="form-control" id="enderecoDestino"  name="enderecoDestino">
+        </div>
 
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>

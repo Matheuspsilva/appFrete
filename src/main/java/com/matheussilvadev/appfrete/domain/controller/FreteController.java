@@ -5,6 +5,7 @@ import com.matheussilvadev.appfrete.domain.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -34,10 +35,10 @@ public class FreteController {
             List<Transportadora> listaTransportadoras = transportadoraService.obterLista();
             List<Rota> listaRotas = rotaService.obterLista();
 
-            model.addAttribute("listaRemetentes", listaRemetentes);
-            model.addAttribute("listaDestinatarios", listaDestinatarios);
-            model.addAttribute("listaTransportadoras", listaTransportadoras);
-            model.addAttribute("listaRotas", listaRotas);
+            model.addAttribute("remetentes", listaRemetentes);
+            model.addAttribute("destinatarios", listaDestinatarios);
+            model.addAttribute("transportadoras", listaTransportadoras);
+            model.addAttribute("rotas", listaRotas);
 
             return "/frete/cadastro";
         }
@@ -51,7 +52,7 @@ public class FreteController {
             return "/frete/lista";
         }
 
-        @GetMapping("/frete/incluir")
+        @PostMapping("/frete/incluir")
         public String salvar(Frete frete) {
 
             freteService.salvar(frete);
